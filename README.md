@@ -37,7 +37,7 @@ _Note: any commands run on the command line are prefixed with `$ ` - you won't n
 3. Install dependencies for the project: `$ bundle install` (this needs to be run from within the project directory)
 
 #### Linux
-1. Use your distro's package manager - try to get Ruby 2.1.5 - otherwise get [chruby](https://github.com/postmodern/chruby) and [ruby-install](https://github.com/postmodern/ruby-install)
+1. Use your distro's package manager to install Ruby - try to get Ruby 2.1.5, otherwise install [chruby](https://github.com/postmodern/chruby) and [ruby-install](https://github.com/postmodern/ruby-install) and use them to install Ruby 2.1.5.
 2. Install bundler (Ruby dependency manager): `$ gem install bundler`
 3. Install dependencies for the project: `$ bundle install` (this needs to be run from within the project directory)
 
