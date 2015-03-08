@@ -13,8 +13,8 @@ _Note: any commands run on the command line are prefixed with `$ ` - you won't n
 2. Ruby 2.1.5
 
 ### Git setup
-- For Windows - [Github client](http://windows.github.com/)
-- For Mac OS X - [Github client](http://mac.github.com/) or [Homebrew](http://brew.sh/) + `$ brew install git`
+- For Windows - [GitHub client](http://windows.github.com/)
+- For Mac OS X - [GitHub client](http://mac.github.com/) or [Homebrew](http://brew.sh/) + `$ brew install git`
 - Roll it yourself - [Official git packages](http://git-scm.com/downloads)
 
 ### Ruby setup
