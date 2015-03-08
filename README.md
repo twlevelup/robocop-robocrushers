@@ -10,7 +10,7 @@ _note: any commands run on the command line are prefixed with `$ ` - you won't n
 
 ### Prerequisites
 1. git
-2. Ruby 1.9.3-p545
+2. Ruby 2.1.5
 
 ### Git setup
 - For Windows - [Github client](http://windows.github.com/)
@@ -33,7 +33,7 @@ _note: any commands run on the command line are prefixed with `$ ` - you won't n
   - Follow the [instructions to install the Devkit](https://github.com/oneclick/rubyinstaller/wiki/Development-Kit)
   - For the rest of this guide, we assume you will use the Git Shell as your console application
 
-2. Install bundler (Ruby Package manager): `$ gem install bundler`
+2. Install bundler (Ruby Package manager): `$ gem install bundler` (if this command fails with a SSL certificate error, see [this answer on Stack Overflow](http://stackoverflow.com/a/27298259) for a solution)
 3. Install gem dependencies `$ bundle install`
 
 #### Linux
