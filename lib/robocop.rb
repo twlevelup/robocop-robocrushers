@@ -1,5 +1,5 @@
 class Robocop
     def beep
-        'beep boop'
+        'beep beep boop'
     end
 end
