@@ -4,7 +4,7 @@ RSpec.describe Robocop do
   it "should beep" do
     d = Robocop.new(0, 0, :N)
     expect(d.beep).to eq('beep beep boop')
-    print "Beep Boop"
+    print "Hello World!"
   end
     
   it 'should return (0,0,n)' do
@@ -17,4 +17,11 @@ RSpec.describe Robocop do
       expect(robot.move_forward).to eq(0,1,:N)
   end
 
+
+   xit 'should turn left 90 degrees' do
+  	d = Robocop.new
+  	#don't put any brackets if function doesn't have params
+  	d.turn_left!
+  end
+  
 end
