@@ -8,6 +8,6 @@ class Robocop
     end
     
     def nein
-    	'nein nein nein'
+    	'nein nein nein x'
     end
 end
