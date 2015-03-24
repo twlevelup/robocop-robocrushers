@@ -1,11 +1,13 @@
 class Robocop
     
     def initialize(x,y,direction)
-    
+        @x = x
+        @y = y
+        @direction = direction
     end
 
     def get_location()
-        return [0,0,:N]
+        return [@x,@y, @direction]
     end
 
     def beep
@@ -18,9 +20,5 @@ class Robocop
     
     def nein
     	'nein nein nein x'
-    end
-
-    def turn_left!
-    	
     end
 end
