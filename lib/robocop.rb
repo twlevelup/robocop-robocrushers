@@ -10,4 +10,8 @@ class Robocop
     def nein
     	'nein nein nein x'
     end
+
+    def turn_left!
+    	
+    end
 end
