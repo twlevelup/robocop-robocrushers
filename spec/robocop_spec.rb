@@ -19,10 +19,12 @@ RSpec.describe Robocop do
   end
 
 
-   xit 'should turn left 90 degrees' do
-  	d = Robocop.new
-  	#don't put any brackets if function doesn't have params
-  	d.turn_left!
+  it 'should turn left 90 degrees' do
+    #Given
+  	robot = Robocop.new(0, 0, :N)
+    #When
+    robot.turn_left!
+    #Then
+    expect(robot.direction).to eq :W
   end
-  
 end
