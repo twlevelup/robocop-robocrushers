@@ -4,7 +4,7 @@ RSpec.describe Robocop do
   it "should beep" do
     d = Robocop.new
     expect(d.beep).to eq('beep beep boop')
-    print "Beep Boop"
+    print "Hello World!"
   end
 
    it 'should turn left 90 degrees' do
