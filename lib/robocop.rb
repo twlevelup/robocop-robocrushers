@@ -6,4 +6,8 @@ class Robocop
     def boo
     	'boo boo boo'
     end
+    
+    def nein
+    	'nein nein nein'
+    end
 end
