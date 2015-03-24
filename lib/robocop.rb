@@ -6,19 +6,15 @@ class Robocop
         @direction = direction
     end
 
-    def get_location()
-        return [@x,@y, @direction]
+    def get_location
+        [@x,@y, @direction]
     end
-
+    
+    def move_forward!
+        @y = 1
+    end
     def beep
         'beep beep boop'
     end
 
-    def boo
-    	'boo boo boo'
-    end
-    
-    def nein
-    	'nein nein nein x'
-    end
 end

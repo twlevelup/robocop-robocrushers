@@ -7,14 +7,15 @@ RSpec.describe Robocop do
     print "Hello World!"
   end
     
-  it 'should return (0,0,n)' do
+  it 'should return (0,0,:N)' do
       robot = Robocop.new(0, 0, :N)
       expect(robot.get_location).to eq ([0,0,:N])
   end
 
-  xit 'given start location (0,0,n) move to location(0,1,n)' do
+  it 'given start location (0,0,:N) move to location(0,1,:N)' do
       robot = Robocop.new(0, 0, :N)
-      expect(robot.move_forward).to eq(0,1,:N)
+      robot.move_forward!
+      expect(robot.get_location).to eq ([0,1,:N])
   end
 
 
