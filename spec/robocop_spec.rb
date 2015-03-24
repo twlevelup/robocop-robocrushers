@@ -4,6 +4,6 @@ RSpec.describe Robocop do
   it "should beep" do
     d = Robocop.new
     expect(d.beep).to eq('beep beep boop')
-    print "Hello World!"
+    print "Beep Boop"
   end
 end
