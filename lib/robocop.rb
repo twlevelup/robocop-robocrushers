@@ -6,19 +6,20 @@ class Robocop
         @direction = direction
     end
 
+    #location accessor
     def get_location
-        [@x,@y, @direction]
+        [@x,@y]
     end
     
-    def move_forward!
-        @y = 1
-    end
-
-
-    def direction
+    #direction accessor
+    def get_direction
         @direction
     end
 
+    def move_forward!
+        @y = 1
+    end
+    
     def beep
         'beep beep boop'
     end
@@ -33,6 +34,14 @@ class Robocop
     end
 
     def turn_left!
-    	@direction = :W
+        if @direction == :N
+    	   @direction = :W
+        elsif @direction == :W
+            @direction = :S
+        elsif @direction == :S
+            @direction = :E
+        elsif @direction == :E
+            @direction = :N
+        end
     end
 end
