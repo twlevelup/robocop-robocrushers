@@ -18,23 +18,18 @@ class Robocop
 
     def move_forward!
         if @direction == :N
-            @y = 1
+            @y += 1
         elsif @direction == :E
             @x += 1
+        elsif @direction == :S
+            @y -= 1
+        elsif @direction == :W
+            @x -= 1
         end
     end
     
     def beep
         'beep beep boop'
-    end
-
-
-    def boo
-    	'boo boo boo'
-    end
-    
-    def nein
-    	'nein nein nein x'
     end
 
     def turn_left!
