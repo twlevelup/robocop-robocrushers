@@ -49,12 +49,18 @@ RSpec.describe Robocop do
       expect(robot.get_direction).to eq(:N)
   end
 
-  it 'given start location (5,5,:E), robot does not move' do
+  it 'given start location (5, 5, :E), robot does not move' do
       robot = Robocop.new(5, 5, :E)
       robot.move_forward!
       expect(robot.get_location).to eq ([5,5])
       expect(robot.get_direction).to eq(:E)
   end
+
+  it 'should return false if the robot is outside of the defined boundary' do
+      robot = Robocop.new(5,6, :N)
+      expect(robot.check_within_boundary?).to eq (false)
+  end
+
   it 'should turn left 90 degrees and face West' do
     #Given
   	robot = Robocop.new(0, 0, :N)
