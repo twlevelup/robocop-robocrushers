@@ -17,6 +17,14 @@ RSpec.describe Robocop do
       robot = Robocop.new(0, 0, :N)
       robot.move_forward!
       expect(robot.get_location).to eq ([0,1])
+      expect(robot.get_direction).to eq (:N)
+  end
+
+  it 'given start location (0,0,:E) move to location(1,0,:E)' do
+      robot = Robocop.new(0, 0, :E)
+      robot.move_forward!
+      expect(robot.get_location).to eq ([1,0])
+      expect(robot.get_direction).to eq(:E)
   end
 
   it 'should turn left 90 degrees and face West' do

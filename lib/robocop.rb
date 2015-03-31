@@ -17,7 +17,11 @@ class Robocop
     end
 
     def move_forward!
-        @y = 1
+        if @direction == :N
+            @y = 1
+        elsif @direction == :E
+            @x += 1
+        end
     end
     
     def beep
