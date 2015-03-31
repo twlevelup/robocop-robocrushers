@@ -2,10 +2,10 @@ require 'robocop'
 
 RSpec.describe Robocop do
 
-  it "should beep" do
+  it 'should beep' do
     d = Robocop.new(0, 0, :N)
     expect(d.beep).to eq('beep beep boop')
-    print "Hello World!"
+    print 'Hello World!'
   end
     
   it 'should return (0,0,:N)' do
