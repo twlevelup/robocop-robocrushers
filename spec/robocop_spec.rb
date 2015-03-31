@@ -13,6 +13,8 @@ RSpec.describe Robocop do
       expect(robot.get_location).to eq ([0,0])
   end
 
+
+  #Test move_forward! function
   it 'given start location (0,0,:N) move to location(0,1,:N)' do
       robot = Robocop.new(0, 0, :N)
       robot.move_forward!
@@ -26,6 +28,66 @@ RSpec.describe Robocop do
       expect(robot.get_location).to eq ([1,0])
       expect(robot.get_direction).to eq(:E)
   end
+
+  it 'given start location (5,0,:W) move to location(4,0,:W)' do
+      robot = Robocop.new(5, 0, :W)
+      robot.move_forward!
+      expect(robot.get_location).to eq ([4,0])
+      expect(robot.get_direction).to eq(:W)
+  end
+
+  it 'given start location (0,5,:S) move to location(0,4,:S)' do
+      robot = Robocop.new(0, 5, :S)
+      robot.move_forward!
+      expect(robot.get_location).to eq ([0,4])
+      expect(robot.get_direction).to eq(:S)
+  end
+
+
+
+  #test check_within_boundary?() function
+  it 'should return false if the robot is outside of the defined boundary' do
+      robot = Robocop.new(0, 0, :N)
+      expect(robot.check_within_boundary?(5, 6)).to eq (false)
+  end
+
+  it 'should return false if the robot is outside of the defined boundary' do
+      robot = Robocop.new(0, 0, :N)
+      expect(robot.check_within_boundary?(5, -1)).to eq (false)
+  end
+
+  it 'should return false if the robot is outside of the defined boundary' do
+      robot = Robocop.new(0, 0, :N)
+      expect(robot.check_within_boundary?(-1, 0)).to eq (false)
+  end
+
+  it 'should return false if the robot is outside of the defined boundary' do
+      robot = Robocop.new(0, 0, :N)
+      expect(robot.check_within_boundary?(6, 5)).to eq (false)
+  end
+
+  #True cases
+  it 'should return true because robot is within the boundary' do
+      robot = Robocop.new(0, 0, :N)
+      expect(robot.check_within_boundary?(5, 5)).to eq (true)
+  end
+
+  it 'should return true because robot is within the boundary' do
+      robot = Robocop.new(0, 0, :N)
+      expect(robot.check_within_boundary?(0, 0)).to eq (true)
+  end
+
+  it 'should return true because robot is within the boundary' do
+      robot = Robocop.new(0, 0, :N)
+      expect(robot.check_within_boundary?(0, 5)).to eq (true)
+  end
+
+  it 'should return true because robot is within the boundary' do
+      robot = Robocop.new(0, 0, :N)
+      expect(robot.check_within_boundary?(5, 0)).to eq (true)
+  end
+
+
 
   #testing boundary conditions
   it 'given start location (0,0,:S), robot does not move' do
@@ -56,11 +118,8 @@ RSpec.describe Robocop do
       expect(robot.get_direction).to eq(:E)
   end
 
-  it 'should return false if the robot is outside of the defined boundary' do
-      robot = Robocop.new(5,6, :N)
-      expect(robot.check_within_boundary?).to eq (false)
-  end
 
+  #Test turn_left! function
   it 'should turn left 90 degrees and face West' do
     #Given
   	robot = Robocop.new(0, 0, :N)
