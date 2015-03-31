@@ -18,13 +18,29 @@ class Robocop
 
     def move_forward!
         if @direction == :N
-            @y += 1
+            if @y < 5
+                @y += 1
+            else
+                puts 'Robot cannot move outside of the grid'
+            end
         elsif @direction == :E
-            @x += 1
+            if @x < 5
+                @x += 1
+            else 
+                puts 'Robot cannot move outside of the grid'
+            end 
         elsif @direction == :S
-            @y -= 1
+            if (@y > 0)
+                @y -= 1
+            else
+                puts 'Robot cannot move outside of the grid'
+            end
         elsif @direction == :W
-            @x -= 1
+            if (@x >0)
+                @x -= 1
+            else
+                puts 'Robot cannot move outside of the grid'
+            end 
         end
     end
     
