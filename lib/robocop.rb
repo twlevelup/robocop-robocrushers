@@ -26,57 +26,34 @@ class Robocop
 
     def move_forward!
         if @direction == :N
-            if check_within_boundary?(@x, @y+1)
-                @y += 1
-            else
-                print_outofbounds
-            end
+            check_and_move!(@x, @y+1)
         elsif @direction == :E
-            if check_within_boundary?(@x+1, @y)
-                @x += 1
-            else 
-                print_outofbounds
-            end 
+            check_and_move!(@x+1, @y)
         elsif @direction == :S
-            if check_within_boundary?(@x, @y-1)
-                @y -= 1
-            else
-                print_outofbounds
-            end
+            check_and_move!(@x, @y-1)
         elsif @direction == :W
-            if check_within_boundary?(@x-1, @y)
-                @x -= 1
-            else
-                print_outofbounds
-            end 
+            check_and_move!(@x-1, @y)
         end
     end
     
+    def check_and_move!(x, y)
+        if check_within_boundary?(x, y)
+            @x = x
+            @y = y
+        else
+            print_outofbounds
+        end
+    end
+
     def move_backward!
         if @direction == :N
-            if check_within_boundary?(@x, @y-1)
-                @y -= 1
-            else
-                print_outofbounds
-            end
+            check_and_move!(@x, @y-1)
         elsif @direction == :E
-            if check_within_boundary?(@x-1, @y)
-                @x -= 1
-            else
-                print_outofbounds
-            end
+            check_and_move!(@x-1, @y)
         elsif @direction == :S
-            if check_within_boundary?(@x, @y+1)
-                @y += 1
-            else
-                print_outofbounds
-            end
+            check_and_move!(@x, @y+1)
         elsif @direction == :W
-            if check_within_boundary?(@x+1, @y)
-                @x += 1
-            else
-                print_outofbounds
-            end
+            check_and_move!(@x+1, @y)
         end
     end  
     def beep
