@@ -55,6 +55,25 @@ class Robocop
         end
     end
     
+    def move_backward!
+        if @direction == :N
+            if check_within_boundary?(@x, @y-1)
+                @y -= 1
+            end
+        elsif @direction == :E
+            if check_within_boundary?(@x-1, @y)
+                @x -= 1
+            end
+        elsif @direction == :S
+            if check_within_boundary?(@x, @y+1)
+                @y += 1
+            end
+        elsif @direction == :W
+            if check_within_boundary?(@x+1, @y)
+                @x += 1
+            end
+        end
+    end  
     def beep
         'beep beep boop'
     end

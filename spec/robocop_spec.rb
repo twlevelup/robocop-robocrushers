@@ -43,7 +43,65 @@ RSpec.describe Robocop do
       expect(robot.get_direction).to eq(:S)
   end
 
+  #Test move_backward! function
+  it 'given start location (0,1,:N) move to location(0,0,:N)' do
+      robot = Robocop.new(0, 1, :N)
+      robot.move_backward!
+      expect(robot.get_location).to eq ([0,0])
+      expect(robot.get_direction).to eq (:N)
+  end
 
+  it 'given start location (0,1,:S) move to location(0,2,:N)' do
+      robot = Robocop.new(0, 1, :S)
+      robot.move_backward!
+      expect(robot.get_location).to eq ([0,2])
+      expect(robot.get_direction).to eq (:S)
+  end
+
+
+  it 'given start location (1,0,:E) move to location(0,0,:E)' do
+      robot = Robocop.new(1, 0, :E)
+      robot.move_backward!
+      expect(robot.get_location).to eq ([0,0])
+      expect(robot.get_direction).to eq (:E)
+  end
+
+  it 'given start location (0,0,:W) move to location(0,0,:W)' do
+      robot = Robocop.new(0, 0, :W)
+      robot.move_backward!
+      expect(robot.get_location).to eq ([1,0])
+      expect(robot.get_direction).to eq (:W)
+  end
+
+  #Test move_backward! with boundary check
+  it 'given start location (0,0,:N), move backward! and robot location stays at [0,0]'  do
+      robot = Robocop.new(0, 0, :N)
+      robot.move_backward!
+      expect(robot.get_location).to eq ([0,0])
+      expect(robot.get_direction).to eq (:N)
+  end
+
+  it 'given start location (0,5,:S), move backward! and robot location stays at [0,5]'  do
+      robot = Robocop.new(0, 5, :S)
+      robot.move_backward!
+      expect(robot.get_location).to eq ([0,5])
+      expect(robot.get_direction).to eq (:S)
+  end
+
+  it 'given start location (0,0,:E), move backward! and robot location stays at [0,0]'  do
+      robot = Robocop.new(0, 0, :E)
+      robot.move_backward!
+      expect(robot.get_location).to eq ([0,0])
+      expect(robot.get_direction).to eq (:E)
+  end
+
+
+  it 'given start location (5,0,:W), move backward! and robot location stays at [5,0]'  do
+      robot = Robocop.new(5, 0, :W)
+      robot.move_backward!
+      expect(robot.get_location).to eq ([5,0])
+      expect(robot.get_direction).to eq (:W)
+  end
 
   #test check_within_boundary?() function
   it 'should return false if the robot is outside of the defined boundary' do
