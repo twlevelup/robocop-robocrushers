@@ -21,10 +21,7 @@ class Robocop
     end
 
     def check_within_boundary?(x, y)
-        if y > 5 || y < 0 || x > 5 || x < 0
-            return false
-        end
-        return true
+        y <= 5 && y >= 0 && x <= 5 && x >= 0
     end
 
     def move_forward!
