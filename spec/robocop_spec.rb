@@ -146,4 +146,16 @@ RSpec.describe Robocop do
     robot.turn_left!
     expect(robot.get_direction).to eq (:N)
   end
+
+
+  #command interpreter
+
+
+    it 'given command :Forward and given current location 0,0 :N, it should move forward to 1,0 :N' do
+      robot = Robocop.new(0, 0, :N)
+      robot.interpret(:Forward)
+      expect(robot.get_location).to eq ([0,1])
+      expect(robot.get_direction).to eq (:N)
+  end
+
 end

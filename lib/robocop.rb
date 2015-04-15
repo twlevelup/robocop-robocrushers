@@ -10,6 +10,12 @@ class Robocop
     def get_location
         [@x,@y]
     end
+
+    def interpret(cmd)
+        if cmd == :Forward
+            move_forward!
+        end
+    end
     
     #direction accessor
     def get_direction
