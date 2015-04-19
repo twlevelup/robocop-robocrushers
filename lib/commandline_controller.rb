@@ -1,10 +1,15 @@
-valid_commands = ['f', 'l', 'q']
+require './robocop'
+require './command'
+
+robot = Robocop.new(0, 0, :N)
 
 while true do 
-	print "Enter command: "
-	cmd = gets.chomp.to_s.downcase
-
-	if !valid_commands.include? cmd
-		puts "not_valid"
-	end
+	print "Command: "
+	cmd = gets.chomp.to_s
+	newCmd = Command.new(cmd)
+	
+	robot.interpret(newCmd.get_representation)
+	#f !valid_commands.include? cmd
+	#puts "not_valid"
+	#nd
 end

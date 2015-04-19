@@ -1,10 +1,10 @@
 class Command
 
     def initialize(input)
-		@descriptions = {'l'=> :Left, 'r'=> :Right, 'f' => :Forward}
+		@descriptions = {'l'=> :Left, 'r'=> :Right, 'f' => :Forward, 'b' => :Backward}
 		input.downcase!
        	if (@descriptions[input])
-       		@banana = @descriptions[input]
+       		@banana = @descriptions[input]		
        	end
 
     end

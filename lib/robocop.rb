@@ -12,9 +12,19 @@ class Robocop
     end
 
     def interpret(cmd)
-        if cmd == :Forward
-            move_forward!
-        end
+	case cmd
+	when :Forward
+		move_forward!
+	when :Backward
+		move_backward!
+	when :Left
+		turn_left!
+	when :Right
+		turn_right!
+	else
+		print_error('Invalid command specified')
+	end
+	print_position
     end
     
     #direction accessor
@@ -24,6 +34,14 @@ class Robocop
 
     def print_outofbounds
         puts 'Robot cannot move outside of the grid'
+    end
+
+    def print_position
+	puts "The Robocop is now at intersection (#{@x},#{@y}), and is facing #{@direction}."
+    end
+
+    def print_error(msg)
+	puts msg
     end
 
     def check_within_boundary?(x, y)
@@ -77,4 +95,16 @@ class Robocop
             @direction = :N
         end
     end
+
+	def turn_right!
+		if @direction == :N
+			@direction = :E
+		elsif @direction == :W
+			@direction = :N
+		elsif @direction == :S
+			@direction = :W
+		elsif @direction == :E
+			@direction = :S
+		end
+	end
 end

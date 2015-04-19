@@ -216,4 +216,31 @@ RSpec.describe Robocop do
       expect(robot.get_direction).to eq (:N)
   end
 
+	it 'given command R and position (0, 0, :N),  it should change direction to (0, 0, :E)' do
+		robot = Robocop.new(0, 0, :N)
+		robot.interpret(:Right)
+		expect(robot.get_location).to eq ([0, 0])
+		expect(robot.get_direction).to eq (:E)
+	end
+
+	it 'given command R and pos (0, 0, :W), it should change direction to (0, 0, :N)' do
+		robot = Robocop.new(0, 0, :W)
+		robot.interpret(:Right)
+		expect(robot.get_location).to eq ([0, 0])
+		expect(robot.get_direction).to eq (:N)
+	end
+
+	it 'given command R and pos (0, 0, :S), it should change direction to (0, 0, :W)' do
+		robot = Robocop.new(0, 0, :S)
+		robot.interpret(:Right)
+		expect(robot.get_location).to eq ([0, 0])
+		expect(robot.get_direction).to eq (:W)
+	end
+
+	it 'given command R and pos (0, 0, :E), it should change direction to (0, 0, :S)' do
+		robot = Robocop.new(0, 0, :E)
+		robot.interpret(:Right)
+		expect(robot.get_location).to eq ([0, 0])
+		expect(robot.get_direction).to eq (:S)
+	end 
 end
