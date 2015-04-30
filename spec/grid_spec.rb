@@ -36,4 +36,8 @@ RSpec.describe Grid do
 		expect(location).to include("r2: [1, 1] facing S")
 		
 	end
+
+	it 'should return r3: [0, 0] facing E when given 3,l on r3: [0,0] facing N' do
+        
+        end
 end
