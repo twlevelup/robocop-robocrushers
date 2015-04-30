@@ -4,13 +4,13 @@ class Command
 		@descriptions = {'l'=> :Left, 'r'=> :Right, 'f' => :Forward, 'b' => :Backward}
 		input.downcase!
        	if (@descriptions[input])
-       		@banana = @descriptions[input]		
+       		@cmd = @descriptions[input]		
        	end
 
     end
 
     def get_representation
-    	@banana
+    	@cmd
     end
 
 
