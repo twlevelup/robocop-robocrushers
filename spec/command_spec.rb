@@ -1,7 +1,7 @@
 require 'command'
 
 RSpec.describe Command do
-    it 'given input of "f" return ":Forward" ' do
+    it 'given input of "f or F" return ":Forward" ' do
         c = Command.new('f')
         expect(c.get_representation).to eq(:Forward)
   	end
@@ -16,4 +16,8 @@ RSpec.describe Command do
     	expect(c.get_representation).to eq (:Left)
     end
 
+    it 'given input of "b or B" return :Backward' do
+        c = Command.new('B')
+        expect(c.get_representation).to eq(:Backward)
+    end
 end

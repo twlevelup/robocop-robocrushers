@@ -1,7 +1,10 @@
 require './robocop'
 require './command'
 
-while true do
+robot = Robocop.new(0, 0, :N)
+
+puts "Welcome to Robocop-Robocrushers!"
+while true do 
 	print "Command: "
 	cmd = gets.chomp.to_s
 	newCmd = Command.new(cmd)
