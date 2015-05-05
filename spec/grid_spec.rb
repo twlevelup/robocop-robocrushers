@@ -47,4 +47,18 @@ RSpec.describe Grid do
 		
 	end
 
+<<<<<<< HEAD
+=======
+	it 'should return r3: [0, 0] facing E when given 3,l on r3: [0,0] facing N' do
+        
+    end
+
+
+    #Test the second constructor
+    it 'should create robot objects and return them' do
+    	g = Grid.new(10)
+    	expect(g.get_robot_count()).to eq(10)
+
+    end
+>>>>>>> 634dbda3535261608a236ebac871a92f2ae22636
 end
