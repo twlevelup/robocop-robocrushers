@@ -13,7 +13,11 @@ class Grid
 	end
 
 	def get_robot(key)
-		@robot_map[key]		
+		if (@robot_map[key])
+            @robot_map[key]
+        else 
+            puts 'Invalid robot identifier'
+            nil        
 	end
 
 	def get_all_robot_location
