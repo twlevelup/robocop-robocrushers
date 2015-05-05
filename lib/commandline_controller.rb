@@ -45,12 +45,10 @@ def parse_input(cmd)
         true
     end
 end
-
 while true do 
     print "Command: "
 	cmd = gets.chomp.to_s
     parse_input(cmd)
-	cmd = cmd.split(", ")
     newCmd = Command.new(cmd[1])
     current_robot = city_grid.get_robot(cmd[0].to_i)
     current_robot.interpret(newCmd.get_representation)
