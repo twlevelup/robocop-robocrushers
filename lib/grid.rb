@@ -1,7 +1,12 @@
+require './robocop'
 class Grid
-    
-    def initialize()
-        @robot_map = {}
+
+    #Constructor
+    def initialize(robot_counter=0)
+    	@robot_map = {}
+    	for index in 1..robot_counter
+    		add_robot(index, Robocop.new(0, 0, :N))
+    	end
     end
 
 	def get_robot_count
@@ -17,7 +22,8 @@ class Grid
             @robot_map[key]
         else 
             puts 'Invalid robot identifier'
-            nil        
+            nil
+        end        
 	end
 
 	def get_all_robot_location
