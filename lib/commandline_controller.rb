@@ -37,10 +37,10 @@ puts string
 city_grid = Grid.new(robot_counter)
 
 def parse_input(cmd)
- 	cmd = cmd.split(", ")
-    if !(Integer(cmd[0]) > 0)
-        puts 'Invalid input'
-        false
+    robot_identifier = cmd[0].to_f
+    if (robot_identifier % 1 != 0 and robot_identifier > 0)
+       puts 'Invalid input'
+       false
     else
         true
     end
@@ -48,8 +48,11 @@ end
 while true do 
     print "Command: "
 	cmd = gets.chomp.to_s
-    parse_input(cmd)
+    cmd = cmd.split(", ")
     newCmd = Command.new(cmd[1])
-    current_robot = city_grid.get_robot(cmd[0].to_i)
-    current_robot.interpret(newCmd.get_representation)
+    if (parse_input(cmd) == true)   
+        if (current_robot = city_grid.get_robot(cmd[0].to_i))
+            current_robot.interpret(newCmd.get_representation)
+        end
+    end
 end
