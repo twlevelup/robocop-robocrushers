@@ -22,7 +22,17 @@ RSpec.describe Grid do
 		g.add_robot('r2', rob2)
 		expect(g.get_robot('r2')).not_to eq(rob)
 	end 
+
+    it 'should return null is the robot does not exist' do
+		g = Grid.new()
+		rob = Robocop.new(0, 0, :N)
+		rob2 = Robocop.new(0, 0, :E)
+		g.add_robot('r1', rob)
+		g.add_robot('r2', rob2)
+		expect(g.get_robot('r8')).to eq(nil)
+	end 
 	
+
 	it 'should return locations of all robots' do
 		g = Grid.new()
 		rob = Robocop.new(0, 0, :N)
@@ -37,7 +47,4 @@ RSpec.describe Grid do
 		
 	end
 
-	it 'should return r3: [0, 0] facing E when given 3,l on r3: [0,0] facing N' do
-        
-        end
 end
