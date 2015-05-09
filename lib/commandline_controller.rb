@@ -61,23 +61,37 @@ while true do
 	        if (current_robot = city_grid.get_robot(cmd[0].to_i))
 	        	vcmd = newCmd.get_representation
 	            current_robot.interpret(vcmd)
+                #Save the robot number for later use
+                robot_number = cmd[0]
 	        end
 	    end
+    #If command has only one argument
     elsif cmd.length == 1
     	newCmd = Command.new(cmd[0])
     	vcmd = newCmd.get_representation
-    	case vcmd
-	when :PrintAll
-		robot_info = city_grid.get_all_robot_location
-		robot_info.each {|info| puts info}
-	when :Quit
-		puts "Thank you for using the robocop controller !"
-		break
-	when :Help
+
+    	if(vcmd == :PrintAll)
+    		robot_info = city_grid.get_all_robot_location
+    		robot_info.each {|info| puts info}
+
+        elsif (vcmd == :BackToStation)
+            current_robot.go_back_to_station
+            location = current_robot.get_location
+            direction = current_robot.get_direction
+            puts "The arrested person has been transfered to the police station."
+            puts "R#{robot_number}: #{location} facing #{direction}"
+            
+    	elsif (vcmd == :DoNothing)
+            puts "R#{robot_number}: has arrested #{current_robot.number_of_arrest} person."
+
+    	elsif (vcmd == :Quit)
+    		puts "Thank you for using this controller !"
+    		break
+	elsif (vcmd == :Help)
 		puts newCmd.show_help
-	else
-		puts "Error: Command is not recognized !"
-	end
+    	else
+    		puts "Error: Command is not recognized !"
+    	end
     else
     	puts "Error: Command is not recognized !"
     end

@@ -25,4 +25,14 @@ RSpec.describe Command do
         c = Command.new('A')
         expect(c.get_representation).to eq(:Arrest)
     end
+
+    it 'given input of "1" return :BackToStation' do
+        c = Command.new('1')
+        expect(c.get_representation).to eq(:BackToStation)
+    end
+
+    it 'given input of "2" return :DoNothing' do
+        c = Command.new('2')
+        expect(c.get_representation).to eq(:DoNothing)
+    end
 end

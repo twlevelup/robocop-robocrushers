@@ -33,4 +33,7 @@ class Grid
 		end
 	end
 
+	def get_robot_info()
+		
+	end
 end

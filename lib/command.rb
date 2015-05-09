@@ -8,7 +8,9 @@ class Command
 				 'a' => :Arrest, 
 				 'v' => :PrintAll, 
 				 'q' => :Quit,
-				 'h' => :Help}
+				 'h' => :Help,
+				 '1' => :BackToStation,
+				 '2' => :DoNothing}
 
 		input.downcase!
        	if (@descriptions[input])
