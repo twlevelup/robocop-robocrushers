@@ -65,7 +65,11 @@ while true do
     	if(vcmd == :PrintAll)
     		robot_info = city_grid.get_all_robot_location
     		robot_info.each {|info| puts info}
-    		
+        elsif (vcmd == :BackToStation)
+            current_robot.set_location(0,0)
+            puts "Robot is back at the Police Station"
+    	elsif (vcmd == :DoNothing)
+            puts "Continue .. beep beep"        
     	elsif (vcmd == :Quit)
     		puts "Thank you for using this controller !"
     		break

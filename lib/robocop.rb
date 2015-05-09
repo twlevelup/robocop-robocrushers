@@ -11,6 +11,11 @@ class Robocop
         [@x,@y]
     end
 
+    def set_location(x,y)
+        @x = x
+        @y = y
+    end
+
     def interpret(cmd)
 	case cmd
 	when :Forward
@@ -112,5 +117,11 @@ class Robocop
 
     def arrest!
         puts "The Robocop has made an arrest at (#{@x}, #{@y})."
+
+        puts "Choose an option: "
+
+        puts "1) Going back to Police Station "
+
+        puts "2) Continue from here "
     end
 end
