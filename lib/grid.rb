@@ -1,4 +1,5 @@
-require 'robocop'
+require_relative 'robocop'
+
 class Grid
 
     #Constructor
