@@ -1,5 +1,4 @@
 require 'command'
-require_relative '../lib/commandline_controller'
 
 RSpec.describe Command do
     it 'given input of "f or F" return ":Forward" ' do
@@ -21,9 +20,4 @@ RSpec.describe Command do
         c = Command.new('B')
         expect(c.get_representation).to eq(:Backward)
     end
-
-    it 'given 0.5 should print "Invalid Input"' do
-        expect(parse_input(0.5)).to eq(false)
-    end
-
 end

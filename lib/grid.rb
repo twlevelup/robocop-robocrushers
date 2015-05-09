@@ -1,4 +1,4 @@
-require './robocop'
+require 'robocop'
 class Grid
 
     #Constructor
