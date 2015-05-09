@@ -2,8 +2,8 @@ require './grid'
 require './command'
 require './robocop'
 
-puts "Welcome to Robocop-Robocrushers!"
 puts ''
+puts "Welcome to Robocop-Robocrushers!"
 puts 'How many robots do you want to activate ?'
 robot_counter = gets.chomp.to_f
 while (robot_counter <= 0 or robot_counter % 1 != 0)
@@ -13,8 +13,6 @@ while (robot_counter <= 0 or robot_counter % 1 != 0)
 end
 robot_counter = robot_counter.to_i
 puts "You have #{robot_counter} active robot(s)."
-
-puts "Type help for command usage and operations"
 
 string = ""
 if robot_counter < 5
