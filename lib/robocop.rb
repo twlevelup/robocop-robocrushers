@@ -129,7 +129,7 @@ class Robocop
         @number_of_arrest += 1
         #Print further menu
         puts "The Robocop has made an arrest at (#{@x}, #{@y})."
-        puts "What do wou want me to do next ?"
+        puts "What do you want me to do next ?"
         puts "1) Going back to Police Station "
         puts "2) Continue from here "
     end
