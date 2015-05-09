@@ -4,6 +4,7 @@ class Robocop
         @x = x
         @y = y
         @direction = direction
+        @number_of_arrest = 0
     end
 
     #location accessor

@@ -57,19 +57,29 @@ while true do
 	        if (current_robot = city_grid.get_robot(cmd[0].to_i))
 	        	vcmd = newCmd.get_representation
 	            current_robot.interpret(vcmd)
+                #Save the robot number for later use
+                robot_number = cmd[0]
 	        end
 	    end
+    #If command has only one argument
     elsif cmd.length == 1
     	newCmd = Command.new(cmd[0])
     	vcmd = newCmd.get_representation
+
     	if(vcmd == :PrintAll)
     		robot_info = city_grid.get_all_robot_location
     		robot_info.each {|info| puts info}
+
         elsif (vcmd == :BackToStation)
             current_robot.set_location(0,0)
-            puts "Robot is back at the Police Station"
+            location = current_robot.get_location
+            direction = current_robot.get_direction
+            puts "The arrested person has been transfered to the police station."
+            puts "R#{robot_number}: #{location} facing #{direction}"
+            
     	elsif (vcmd == :DoNothing)
-            puts "Continue .. beep beep"        
+            puts "Continue .. beep beep"
+
     	elsif (vcmd == :Quit)
     		puts "Thank you for using this controller !"
     		break
