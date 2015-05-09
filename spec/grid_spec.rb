@@ -42,8 +42,8 @@ RSpec.describe Grid do
 		location = g.get_all_robot_location()
 		
 		expect(location.count).to be(2)
-		expect(location).to include("r1: [0, 0] facing N")
-		expect(location).to include("r2: [1, 1] facing S")
+		expect(location).to include("Rr1: [0, 0] facing N")
+		expect(location).to include("Rr2: [1, 1] facing S")
 		
 	end
 
@@ -51,6 +51,5 @@ RSpec.describe Grid do
     it 'should create robot objects and return them' do
     	g = Grid.new(10)
     	expect(g.get_robot_count()).to eq(10)
-
     end
 end
