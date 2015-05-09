@@ -14,6 +14,8 @@ end
 robot_counter = robot_counter.to_i
 puts "You have #{robot_counter} active robot(s)."
 
+puts "Type help for command usage and operations"
+
 string = ""
 if robot_counter < 5
 	for index in 1..robot_counter
@@ -35,6 +37,8 @@ end
 puts string	
 
 city_grid = Grid.new(robot_counter)
+
+puts "\nType h for command usage and operations\n\n"
 
 def parse_input(cmd)
     robot_identifier = cmd[0].to_f
@@ -62,16 +66,18 @@ while true do
     elsif cmd.length == 1
     	newCmd = Command.new(cmd[0])
     	vcmd = newCmd.get_representation
-    	if(vcmd == :PrintAll)
-    		robot_info = city_grid.get_all_robot_location
-    		robot_info.each {|info| puts info}
-    		
-    	elsif (vcmd == :Quit)
-    		puts "Thank you for using this controller !"
-    		break
-    	else
-    		puts "Error: Command is not recognized !"
-    	end
+    	case vcmd
+	when :PrintAll
+		robot_info = city_grid.get_all_robot_location
+		robot_info.each {|info| puts info}
+	when :Quit
+		puts "Thank you for using the robocop controller !"
+		break
+	when :Help
+		puts newCmd.show_help
+	else
+		puts "Error: Command is not recognized !"
+	end
     else
     	puts "Error: Command is not recognized !"
     end
