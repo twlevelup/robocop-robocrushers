@@ -39,20 +39,43 @@ city_grid = Grid.new(robot_counter)
 def parse_input(cmd)
     robot_identifier = cmd[0].to_f
     if (robot_identifier % 1 != 0 and robot_identifier > 0)
-       puts 'Invalid input'
+       puts 'Error: first argument must be a whole integer greater than 0 !'
        false
     else
         true
     end
 end
+
 while true do 
     print "Command: "
 	cmd = gets.chomp.to_s
     cmd = cmd.split(", ")
-    newCmd = Command.new(cmd[1])
-    if (parse_input(cmd) == true)   
-        if (current_robot = city_grid.get_robot(cmd[0].to_i))
-            current_robot.interpret(newCmd.get_representation)
-        end
+    #If command has 2 arguments
+    if cmd.length == 2
+    	newCmd = Command.new(cmd[1])
+	    if (parse_input(cmd) == true)   
+	        if (current_robot = city_grid.get_robot(cmd[0].to_i))
+	        	vcmd = newCmd.get_representation
+	            current_robot.interpret(vcmd)
+	        end
+	    end
+    elsif cmd.length == 1
+    	newCmd = Command.new(cmd[0])
+    	vcmd = newCmd.get_representation
+    	if(vcmd == :PrintAll)
+    		robot_info = city_grid.get_all_robot_location
+    		robot_info.each {|info| puts info}
+    		
+    	elsif (vcmd == :Quit)
+    		puts "Thank you for using this controller !"
+    		break
+    	else
+    		puts "Error: Command is not recognized !"
+    	end
+    else
+    	puts "Error: Command is not recognized !"
     end
+
+    #print a blank line
+    puts ""
 end

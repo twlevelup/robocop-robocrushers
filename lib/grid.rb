@@ -29,7 +29,8 @@ class Grid
 
 	def get_all_robot_location
 		@robot_map.map do |key, robot|
-			"#{key}: #{robot.get_location} facing #{robot.get_direction}"
+			"R#{key}: #{robot.get_location} facing #{robot.get_direction}"
 		end
 	end
+
 end

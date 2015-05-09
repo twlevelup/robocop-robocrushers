@@ -37,7 +37,7 @@ class Robocop
     end
 
     def print_position
-	puts "The Robocop is now at intersection (#{@x},#{@y}), and is facing #{@direction}."
+	puts "The Robocop is at intersection (#{@x},#{@y}), and is facing #{@direction}."
     end
 
     def print_error(msg)
