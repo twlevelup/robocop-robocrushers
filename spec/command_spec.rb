@@ -20,4 +20,9 @@ RSpec.describe Command do
         c = Command.new('B')
         expect(c.get_representation).to eq(:Backward)
     end
+
+    it 'given input of "a or A" return :Arrest' do
+        c = Command.new('A')
+        expect(c.get_representation).to eq(:Arrest)
+    end
 end

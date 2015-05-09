@@ -21,6 +21,8 @@ class Robocop
 		turn_left!
 	when :Right
 		turn_right!
+    when :Arrest
+        arrest!
 	else
 		print_error('Invalid command specified')
 	end
@@ -107,4 +109,8 @@ class Robocop
 			@direction = :S
 		end
 	end
+
+    def arrest!
+        puts "The Robocop has made an arrest at (#{@x}, #{@y})."
+    end
 end
