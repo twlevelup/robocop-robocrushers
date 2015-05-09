@@ -61,6 +61,7 @@ class Robocop
     end
 
     def move_forward!
+        print_arrest()
         if @direction == :N
             check_and_move!(@x, @y+1)
         elsif @direction == :E
@@ -82,6 +83,7 @@ class Robocop
     end
 
     def move_backward!
+        print_arrest()
         if @direction == :N
             check_and_move!(@x, @y-1)
         elsif @direction == :E
@@ -97,6 +99,7 @@ class Robocop
     end
 
     def turn_left!
+        print_arrest()
         if @direction == :N
     	   @direction = :W
         elsif @direction == :W
@@ -109,6 +112,7 @@ class Robocop
     end
 
 	def turn_right!
+        print_arrest()
 		if @direction == :N
 			@direction = :E
 		elsif @direction == :W
@@ -123,13 +127,10 @@ class Robocop
     def arrest!
 
         @number_of_arrest += 1
-
+        #Print further menu
         puts "The Robocop has made an arrest at (#{@x}, #{@y})."
-
-        puts "Choose an option: "
-
+        puts "What do wou want me to do next ?"
         puts "1) Going back to Police Station "
-
         puts "2) Continue from here "
     end
 
@@ -137,5 +138,11 @@ class Robocop
         @x = 0
         @y = 0
         @number_of_arrest = 0
+    end
+
+    def print_arrest()
+        if @number_of_arrest > 0
+            puts "Robot has arrested #{@number_of_arrest} person(s)."
+        end
     end
 end
