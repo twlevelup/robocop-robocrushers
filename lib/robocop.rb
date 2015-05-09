@@ -17,6 +17,10 @@ class Robocop
         @y = y
     end
 
+    def number_of_arrest
+        @number_of_arrest
+    end
+
     def interpret(cmd)
 	case cmd
 	when :Forward
@@ -117,6 +121,9 @@ class Robocop
 	end
 
     def arrest!
+
+        @number_of_arrest += 1
+
         puts "The Robocop has made an arrest at (#{@x}, #{@y})."
 
         puts "Choose an option: "
@@ -124,5 +131,11 @@ class Robocop
         puts "1) Going back to Police Station "
 
         puts "2) Continue from here "
+    end
+
+    def go_back_to_station
+        @x = 0
+        @y = 0
+        @number_of_arrest = 0
     end
 end

@@ -71,14 +71,14 @@ while true do
     		robot_info.each {|info| puts info}
 
         elsif (vcmd == :BackToStation)
-            current_robot.set_location(0,0)
+            current_robot.go_back_to_station
             location = current_robot.get_location
             direction = current_robot.get_direction
             puts "The arrested person has been transfered to the police station."
             puts "R#{robot_number}: #{location} facing #{direction}"
             
     	elsif (vcmd == :DoNothing)
-            puts "Continue .. beep beep"
+            puts "R#{robot_number}: has arrested #{current_robot.number_of_arrest} person."
 
     	elsif (vcmd == :Quit)
     		puts "Thank you for using this controller !"
