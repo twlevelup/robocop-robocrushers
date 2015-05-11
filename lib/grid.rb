@@ -51,10 +51,10 @@ class Grid
 
         # loop through robots hashmap and amend lines
         
-
         # join array of string lines with pipes
         
         # output string
+        
     end 
         
 end
