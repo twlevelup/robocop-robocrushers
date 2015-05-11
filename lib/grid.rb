@@ -33,7 +33,22 @@ class Grid
 		end
 	end
 
-    def print_grid
-    
-    end
+   def print_grid
+        # string representation of grid lines
+        grid_strings = Array.new(5)
+        for i in 0..grid_strings.length-1
+            grid_string[i] = grid_string[i] + "o"
+            for i in 0..3 
+            grid_strings[i] = "-o"
+            end
+        puts grid_string[i]
+        end
+
+        # loop through robots hashmap and amend lines
+        
+        # join array of string lines with pipes
+        
+        # output string
+    end 
+        
 end
