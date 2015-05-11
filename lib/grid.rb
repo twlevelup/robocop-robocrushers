@@ -33,4 +33,7 @@ class Grid
 		end
 	end
 
+    def print_grid
+    
+    end
 end
