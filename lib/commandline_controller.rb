@@ -35,13 +35,14 @@ end
 puts string	
 
 city_grid = Grid.new(robot_counter)
+city_grid.print_grid
 
 puts "\nType h for command usage and operations\n\n"
 
 def parse_input(cmd)
     robot_identifier = cmd[0].to_f
     if (robot_identifier % 1 != 0 and robot_identifier > 0)
-       puts 'Error: first argument must be a whole integer greater than 0 !'
+       puts 'Error: first argument must be a whole integer greater than 0!'
        false
     else
         true
@@ -71,6 +72,9 @@ while true do
     	if(vcmd == :PrintAll)
     		robot_info = city_grid.get_all_robot_location
     		robot_info.each {|info| puts info}
+
+        elsif(vcmd == :PrintGrid)
+            city_grid.print_grid
 
         elsif (vcmd == :BackToStation)
             current_robot.go_back_to_station
