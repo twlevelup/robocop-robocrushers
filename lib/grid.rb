@@ -34,27 +34,37 @@ class Grid
 	end
 
    def print_grid
-        # string representation of grid lines
-        grid_strings = Array.new(6)
-        for i in 0..grid_strings.length-1
-            grid_strings[i] =  "o"
-            for j in 0..4 
-            grid_strings[i] += "---o"
-            end
-        end
-        for i in 0..grid_strings.length-1
-            puts grid_strings[i]
-            if (i < grid_strings.length-1)
-                puts '|   |   |   |   |   |'
-            end
-        end
+       # string representation of grid lines
+       grid_strings = Array.new(6)
+       for i in 0..grid_strings.length-1
+           grid_strings[i] =  "o"
+           for j in 0..4 
+               grid_strings[i] += "---o"
+           end
+       end
+      
+       @robot_map.map do |key, robot|
+           robot_x, robot_y = robot.get_location
+           robot_direction = robot.get_direction
+          if  (grid_strings[5-robot_y][robot_x*4] == "o") 
+               grid_strings[5-robot_y][robot_x*4] = "#{robot_direction}"
+          elsif
+              (grid_strings[5-robot_y][robot_x*4] == "N" or
+               grid_strings[5-robot_y][robot_x*4] == "S" or
+               grid_strings[5-robot_y][robot_x*4] == "E" or
+               grid_strings[5-robot_y][robot_x*4] == "W")
+               grid_strings[5-robot_y][robot_x*4] = "*"
+          end
 
-        # loop through robots hashmap and amend lines
-        
-        # join array of string lines with pipes
-        
-        # output string
+       end
+ 
+       for i in 0..grid_strings.length-1
+           puts grid_strings[i]
+           if (i < grid_strings.length-1)
+               puts '|   |   |   |   |   |'
+           end
+       end
+      
         
     end 
-        
 end
